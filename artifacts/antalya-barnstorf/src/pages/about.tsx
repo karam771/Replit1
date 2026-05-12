@@ -3,19 +3,16 @@ import { Star, ImageIcon } from 'lucide-react';
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-background text-foreground pt-24">
+    <div className="min-h-screen bg-background text-foreground pt-16">
 
       {/* Page header */}
-      <div className="border-b border-border bg-card py-16 text-center">
+      <div className="bg-card border-b border-border py-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span
-            className="text-primary tracking-[0.3em] uppercase text-xs font-semibold block mb-4"
-            style={{ fontFamily: 'Cinzel, serif' }}
-          >
+          <span className="text-primary tracking-[0.3em] uppercase text-xs font-medium block mb-4">
             Seit über 21 Jahren
           </span>
           <h1
@@ -42,8 +39,6 @@ export default function About() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.1 }}
           >
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-secondary to-transparent pointer-events-none" />
-
             <h2 className="text-3xl md:text-4xl font-serif mb-6 leading-tight">
               Tradition &amp; Herzlichkeit
             </h2>
@@ -66,11 +61,6 @@ export default function About() {
                 werden. Wir machen keine Kompromisse, wenn es um Qualität geht — das ist es,
                 was unsere Gäste seit Jahren an uns schätzen.
               </p>
-              <p>
-                Bei uns wird jeder willkommen geheißen — ob zum schnellen Mittagessen, für eine
-                entspannte Abendrunde oder für einen gemütlichen Besuch mit der Familie.
-                Wir freuen uns auf Sie.
-              </p>
             </div>
 
             {/* Rating */}
@@ -79,11 +69,11 @@ export default function About() {
                 {[1, 2, 3, 4, 5].map(i => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i <= 4 ? 'fill-primary text-primary' : 'text-foreground/30'}`}
+                    className={`w-4 h-4 ${i <= 4 ? 'fill-primary text-primary' : 'text-foreground/25'}`}
                   />
                 ))}
               </div>
-              <span className="text-foreground/80 text-sm">
+              <span className="text-foreground/75 text-sm">
                 <strong className="text-foreground">4,4 / 5</strong> — über 500 Bewertungen
               </span>
             </div>
@@ -97,20 +87,16 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[4/5] border border-border bg-muted flex flex-col items-center justify-center gap-4 relative overflow-hidden">
-              {/* Corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary" />
               <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary" />
               <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary" />
-
-              <ImageIcon className="w-14 h-14 text-foreground/15" />
+              <ImageIcon className="w-14 h-14 text-foreground/12" />
               <div className="text-center">
-                <p className="text-foreground/30 text-xs tracking-widest uppercase mb-1">Bild vom Lokal</p>
-                <p className="text-foreground/20 text-xs">Wird noch eingefügt</p>
+                <p className="text-foreground/25 text-xs tracking-widest uppercase mb-1">Bild vom Lokal</p>
+                <p className="text-foreground/18 text-xs">Wird noch eingefügt</p>
               </div>
             </div>
-            {/* Right accent strip */}
-            <div className="absolute -right-3 top-8 bottom-8 w-0.5 bg-gradient-to-b from-transparent via-secondary to-transparent" />
           </motion.div>
         </div>
       </div>

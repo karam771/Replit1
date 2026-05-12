@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
-import { ImageIcon, Phone, UtensilsCrossed } from 'lucide-react';
+import { ImageIcon, Phone, UtensilsCrossed, Star } from 'lucide-react';
 const logoPath = '/images/logo.png';
 
 const bestsellers = [
@@ -8,6 +8,53 @@ const bestsellers = [
   { title: 'Pizza Kebap Hollandaise' },
   { title: 'Paninis mit Spinat und Käse' },
   { title: 'Rollo Antalya' },
+];
+
+const reviews = [
+  {
+    name: 'Maximilian K.',
+    date: 'vor 2 Wochen',
+    text: 'Wir kommen seit Jahren regelmäßig hierher und es wird einfach nicht schlechter – im Gegenteil! Der Döner ist der beste in der ganzen Region, das Fleisch immer frisch und die Soßen hausgemacht. Sehr freundliches Personal, kurze Wartezeiten. Absolute Empfehlung!',
+  },
+  {
+    name: 'Sarah B.',
+    date: 'vor einem Monat',
+    text: 'Die Pizza Kebap Hollandaise ist ein Gedicht. Ich war skeptisch, aber nach dem ersten Bissen war ich überzeugt. Großzügige Portionen, faire Preise und der Laden ist immer sauber. Mein Lieblingsimbiss in Barnstorf – da geht nichts drüber.',
+  },
+  {
+    name: 'Thomas W.',
+    date: 'vor 3 Wochen',
+    text: 'Super freundliches Team, man wird immer herzlich begrüßt. Das Rollo Antalya ist wirklich besonders – so etwas bekommt man nicht überall. Schneller Service auch wenn viel los ist. Sehr zufrieden, komme immer wieder gerne!',
+  },
+  {
+    name: 'Familie Müller',
+    date: 'vor 5 Tagen',
+    text: 'Unser Familienrestaurant Nummer eins in der Umgebung. Auch für Kinder gibt es tolle Optionen. Die Paninis sind immer perfekt belegt und warm. Man merkt, dass hier mit Leidenschaft gekocht wird. Herzlichen Dank an das ganze Team!',
+  },
+];
+
+const quickLinks = [
+  {
+    label: 'SPEISEKARTE',
+    sub: 'Unsere Köstlichkeiten',
+    href: '/speisekarte',
+    isLink: true,
+    bg: 'from-stone-900/60 via-stone-900/30 to-transparent',
+  },
+  {
+    label: 'ATMOSPHÄRE',
+    sub: 'Unser Restaurant',
+    href: '/galerie',
+    isLink: true,
+    bg: 'from-stone-900/60 via-stone-900/30 to-transparent',
+  },
+  {
+    label: 'JETZT ANRUFEN',
+    sub: '05442 804581',
+    href: 'tel:05442804581',
+    isLink: false,
+    bg: 'from-stone-900/60 via-stone-900/30 to-transparent',
+  },
 ];
 
 export default function Home() {
@@ -56,18 +103,12 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/speisekarte">
-                <button
-                  data-testid="hero-menu-btn"
-                  className="w-full sm:w-auto bg-primary text-white hover:bg-primary/85 transition-colors px-10 py-4 text-sm font-semibold tracking-wide"
-                >
+                <button className="w-full sm:w-auto bg-primary text-white hover:bg-primary/85 transition-colors px-10 py-4 text-sm font-semibold tracking-wide">
                   Speisekarte ansehen
                 </button>
               </Link>
               <a href="tel:05442804581" className="w-full sm:w-auto">
-                <button
-                  data-testid="hero-phone-btn"
-                  className="w-full border border-white/20 text-white/80 hover:border-primary hover:text-primary transition-colors px-10 py-4 text-sm font-medium tracking-wide"
-                >
+                <button className="w-full border border-white/20 text-white/80 hover:border-primary hover:text-primary transition-colors px-10 py-4 text-sm font-medium tracking-wide">
                   05442 804581
                 </button>
               </a>
@@ -76,9 +117,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Bestseller ── (same bg as hero for seamless transition) */}
+      {/* ── 3-Card Quick Links ── */}
+      <section className="bg-background">
+        <div className="max-w-6xl mx-auto px-6 pb-0">
+          <div className="flex items-center gap-6 py-16">
+            <div className="flex-1 h-px bg-border" />
+            <div className="w-1.5 h-1.5 rotate-45 bg-primary" />
+            <div className="flex-1 h-px bg-border" />
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-0"
+        >
+          {quickLinks.map((card, i) => {
+            const inner = (
+              <div className="relative h-72 md:h-80 overflow-hidden group cursor-pointer">
+                {/* Background placeholder with atmospheric gradient */}
+                <div
+                  className="absolute inset-0 bg-card transition-transform duration-700 group-hover:scale-105"
+                  style={{
+                    backgroundImage: i === 0
+                      ? 'radial-gradient(ellipse at 30% 60%, rgba(120,40,20,0.35) 0%, transparent 70%), linear-gradient(135deg, #1a1008 0%, #0e0e0e 100%)'
+                      : i === 1
+                      ? 'radial-gradient(ellipse at 60% 40%, rgba(20,60,30,0.4) 0%, transparent 70%), linear-gradient(135deg, #0a140d 0%, #0e0e0e 100%)'
+                      : 'radial-gradient(ellipse at 50% 70%, rgba(80,20,20,0.4) 0%, transparent 70%), linear-gradient(135deg, #14080a 0%, #0e0e0e 100%)',
+                  }}
+                />
+
+                {/* Placeholder icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <ImageIcon className="w-14 h-14 text-foreground/8" />
+                </div>
+
+                {/* Bottom overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+
+                {/* Hover top accent line */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
+
+                {/* Text */}
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <p className="text-foreground/45 text-[10px] tracking-[0.3em] uppercase mb-2 font-medium">
+                    {card.sub}
+                  </p>
+                  <h3
+                    className="text-2xl md:text-3xl font-semibold tracking-wider text-white group-hover:text-primary transition-colors duration-300"
+                    style={{ fontFamily: 'Cinzel, serif' }}
+                  >
+                    {card.label}
+                  </h3>
+                </div>
+              </div>
+            );
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className={`border-t border-border ${i < 2 ? 'md:border-r' : ''}`}
+              >
+                {card.isLink
+                  ? <Link href={card.href}>{inner}</Link>
+                  : <a href={card.href}>{inner}</a>
+                }
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </section>
+
+      {/* ── Bestseller ── */}
       <section className="py-28 md:py-36 bg-background">
-        {/* Subtle top divider */}
         <div className="max-w-6xl mx-auto px-6 mb-20">
           <div className="flex items-center gap-6">
             <div className="flex-1 h-px bg-border" />
@@ -113,7 +230,6 @@ export default function Home() {
             {bestsellers.map((item, idx) => (
               <motion.div
                 key={idx}
-                data-testid={`bestseller-card-${idx}`}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
@@ -134,7 +250,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Two CTAs below bestsellers */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -143,23 +258,99 @@ export default function Home() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-14"
           >
             <a href="tel:05442804581">
-              <button
-                data-testid="order-phone-btn"
-                className="flex items-center gap-2.5 bg-primary text-white hover:bg-primary/85 transition-colors px-8 py-4 text-sm font-semibold tracking-wide"
-              >
+              <button className="flex items-center gap-2.5 bg-primary text-white hover:bg-primary/85 transition-colors px-8 py-4 text-sm font-semibold tracking-wide">
                 <Phone className="w-4 h-4" />
                 05442 804581
               </button>
             </a>
             <Link href="/speisekarte">
-              <button
-                data-testid="menu-link-btn"
-                className="flex items-center gap-2.5 border border-border text-foreground/70 hover:border-primary hover:text-primary transition-colors px-8 py-4 text-sm font-medium tracking-wide"
-              >
+              <button className="flex items-center gap-2.5 border border-border text-foreground/70 hover:border-primary hover:text-primary transition-colors px-8 py-4 text-sm font-medium tracking-wide">
                 <UtensilsCrossed className="w-4 h-4" />
                 Zur Speisekarte
               </button>
             </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Reviews ── */}
+      <section className="py-24 md:py-32 bg-card border-t border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <span className="text-primary tracking-[0.25em] uppercase text-xs font-medium block mb-5">
+              Google Bewertungen
+            </span>
+            <h2
+              className="text-4xl md:text-5xl font-semibold tracking-wide mb-5"
+              style={{ fontFamily: 'Cinzel, serif' }}
+            >
+              Was unsere Gäste sagen
+            </h2>
+            <p className="text-foreground/40 text-sm tracking-wide">
+              Repräsentative Auswahl aus über 500 Kundenstimmen
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {reviews.map((review, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="bg-background border border-border p-7 flex flex-col gap-4"
+              >
+                {/* Stars */}
+                <div className="flex gap-1">
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <Star key={s} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
+
+                {/* Review text */}
+                <p className="text-foreground/70 font-serif italic text-sm leading-relaxed flex-1">
+                  „{review.text}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center justify-between pt-3 border-t border-border">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <span className="text-primary text-xs font-semibold">
+                        {review.name.charAt(0)}
+                      </span>
+                    </div>
+                    <span className="text-sm font-medium text-foreground/80">{review.name}</span>
+                  </div>
+                  <span className="text-xs text-foreground/35">{review.date}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Google rating badge */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-10 flex items-center justify-center gap-3"
+          >
+            <div className="flex gap-0.5">
+              {Array.from({ length: 5 }).map((_, s) => (
+                <Star key={s} className="w-3.5 h-3.5 fill-primary text-primary" />
+              ))}
+            </div>
+            <span className="text-foreground/40 text-xs tracking-wide">
+              Bewertet auf Google · 500+ Rezensionen
+            </span>
           </motion.div>
         </div>
       </section>

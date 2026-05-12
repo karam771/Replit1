@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import logoPath from '@assets/erasebg-transformed_2_(1)_1778623995583.png';
+const logoPath = '/images/logo.png';
 
 export default function Footer() {
   return (

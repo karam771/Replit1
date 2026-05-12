@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { ImageIcon, Phone, UtensilsCrossed } from 'lucide-react';
-import logoPath from '@assets/erasebg-transformed_2_(1)_1778623995583.png';
+const logoPath = '/images/logo.png';
 
 const bestsellers = [
   { title: 'Döner Kebap' },

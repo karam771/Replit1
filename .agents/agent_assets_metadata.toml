@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "dtdrkOIwMbiK6SuWh99zv"
@@ -12,3 +11,9 @@ id = "wkNIHkeTCpdMOP5oo-gu6"
 uri = "file://artifacts/antalya-barnstorf/public/images/about-food.png"
 type = "image"
 title = "Rustic Turkish Mediterranean food spread"
+
+[[outputs]]
+id = "A2RsFfri08_wm7CIxy1wF"
+uri = "file://attached_assets/antalya_logo_clean.png"
+type = "image"
+title = "Logo — bereinigt"

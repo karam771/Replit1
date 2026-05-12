@@ -1,7 +1,7 @@
 import { useLocation, Link } from 'wouter';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logoPath from '@assets/erasebg-transformed_2_(1)_1778623995583.png';
+const logoPath = '/images/logo.png';
 
 const navItems = [
   { path: '/',                 label: 'Start' },

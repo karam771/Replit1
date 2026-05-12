@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -42,6 +42,7 @@
 
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
+  --font-display: var(--app-font-display);
   --font-mono: var(--app-font-mono);
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -59,41 +60,42 @@
   --elevate-1: rgba(255, 255, 255, 0.04);
   --elevate-2: rgba(255, 255, 255, 0.09);
 
-  /* Dark Mediterranean cellar theme by default */
-  --background: 0 10% 8%; /* Very dark red-brown, almost black */
-  --foreground: 40 30% 90%; /* Warm cream */
+  /* Anthrazit / Schwarz mit Rot & Dunkelgrün */
+  --background: 0 0% 7%;            /* Near-black anthracite */
+  --foreground: 0 0% 91%;           /* Near-white */
 
-  --border: 0 5% 15%;
-  --card: 0 8% 10%;
-  --card-foreground: 40 30% 90%;
-  --card-border: 0 5% 15%;
+  --border: 0 0% 17%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 91%;
+  --card-border: 0 0% 17%;
 
-  --popover: 0 8% 10%;
-  --popover-foreground: 40 30% 90%;
-  --popover-border: 0 5% 15%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 0 0% 91%;
+  --popover-border: 0 0% 17%;
 
-  --primary: 35 80% 55%; /* Gold/Amber */
-  --primary-foreground: 0 10% 8%;
+  --primary: 0 72% 44%;             /* Deep red */
+  --primary-foreground: 0 0% 97%;
 
-  --secondary: 0 15% 15%; /* Deep terracotta */
-  --secondary-foreground: 40 30% 90%;
+  --secondary: 138 38% 16%;         /* Dark green */
+  --secondary-foreground: 0 0% 91%;
 
-  --muted: 0 5% 12%;
-  --muted-foreground: 40 20% 70%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 62%;
 
-  --accent: 35 60% 30%;
-  --accent-foreground: 40 30% 90%;
+  --accent: 138 30% 22%;            /* Slightly lighter dark green */
+  --accent-foreground: 0 0% 91%;
 
-  --destructive: 0 60% 40%;
-  --destructive-foreground: 40 30% 90%;
+  --destructive: 0 72% 44%;
+  --destructive-foreground: 0 0% 97%;
 
-  --input: 0 5% 20%;
-  --ring: 35 80% 55%;
+  --input: 0 0% 18%;
+  --ring: 0 72% 44%;
 
   --app-font-sans: 'DM Sans', sans-serif;
   --app-font-serif: 'Playfair Display', serif;
+  --app-font-display: 'Cinzel', serif;
   --app-font-mono: Menlo, monospace;
-  --radius: 0.25rem;
+  --radius: 0.125rem;
 
   --sidebar-primary-border: hsl(var(--primary));
   --sidebar-accent-border: hsl(var(--accent));
@@ -105,28 +107,27 @@
 }
 
 .dark {
-  /* Same theme for dark mode, as the design is inherently dark */
-  --background: 0 10% 8%;
-  --foreground: 40 30% 90%;
-  --border: 0 5% 15%;
-  --card: 0 8% 10%;
-  --card-foreground: 40 30% 90%;
-  --card-border: 0 5% 15%;
-  --popover: 0 8% 10%;
-  --popover-foreground: 40 30% 90%;
-  --popover-border: 0 5% 15%;
-  --primary: 35 80% 55%;
-  --primary-foreground: 0 10% 8%;
-  --secondary: 0 15% 15%;
-  --secondary-foreground: 40 30% 90%;
-  --muted: 0 5% 12%;
-  --muted-foreground: 40 20% 70%;
-  --accent: 35 60% 30%;
-  --accent-foreground: 40 30% 90%;
-  --destructive: 0 60% 40%;
-  --destructive-foreground: 40 30% 90%;
-  --input: 0 5% 20%;
-  --ring: 35 80% 55%;
+  --background: 0 0% 7%;
+  --foreground: 0 0% 91%;
+  --border: 0 0% 17%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 91%;
+  --card-border: 0 0% 17%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 0 0% 91%;
+  --popover-border: 0 0% 17%;
+  --primary: 0 72% 44%;
+  --primary-foreground: 0 0% 97%;
+  --secondary: 138 38% 16%;
+  --secondary-foreground: 0 0% 91%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 62%;
+  --accent: 138 30% 22%;
+  --accent-foreground: 0 0% 91%;
+  --destructive: 0 72% 44%;
+  --destructive-foreground: 0 0% 97%;
+  --input: 0 0% 18%;
+  --ring: 0 72% 44%;
 }
 
 @layer base {

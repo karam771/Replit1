@@ -77,7 +77,7 @@ export default function Navbar() {
           href="tel:05442804581"
           className="hidden md:flex items-center bg-primary text-primary-foreground hover:bg-primary/85 transition-colors duration-200 px-5 py-2 text-[11px] font-semibold tracking-wider"
         >
-          Jetzt bestellen
+          Jetzt anrufen
         </a>
 
         {/* Mobile hamburger */}
@@ -112,7 +112,7 @@ export default function Navbar() {
             href="tel:05442804581"
             className="mt-2 text-center bg-primary text-primary-foreground py-3 text-sm font-semibold tracking-wider"
           >
-            Jetzt bestellen
+            Jetzt anrufen
           </a>
         </div>
       )}

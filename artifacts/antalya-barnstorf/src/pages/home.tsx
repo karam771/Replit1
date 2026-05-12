@@ -274,7 +274,16 @@ export default function Home() {
       </section>
 
       {/* ── Reviews ── */}
-      <section className="py-24 md:py-32 bg-card border-t border-border">
+      <section className="py-24 md:py-32 bg-background" style={{ borderTop: '1px solid transparent', backgroundImage: 'linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--card)) 120px)' }}>
+        {/* Decorative separator */}
+        <div className="max-w-6xl mx-auto px-6 mb-20">
+          <div className="flex items-center gap-6">
+            <div className="flex-1 h-px bg-border" />
+            <div className="w-1.5 h-1.5 rotate-45 bg-primary" />
+            <div className="flex-1 h-px bg-border" />
+          </div>
+        </div>
+
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -283,9 +292,6 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <span className="text-primary tracking-[0.25em] uppercase text-xs font-medium block mb-5">
-              Google Bewertungen
-            </span>
             <h2
               className="text-4xl md:text-5xl font-semibold tracking-wide mb-5"
               style={{ fontFamily: 'Cinzel, serif' }}
@@ -335,7 +341,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Google rating badge */}
+          {/* Google rating badge — 4.5 stars */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -343,13 +349,21 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-10 flex items-center justify-center gap-3"
           >
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, s) => (
+            <div className="flex gap-0.5 items-center">
+              {/* 4 full stars */}
+              {Array.from({ length: 4 }).map((_, s) => (
                 <Star key={s} className="w-3.5 h-3.5 fill-primary text-primary" />
               ))}
+              {/* half star via clip */}
+              <span className="relative inline-block w-3.5 h-3.5">
+                <Star className="absolute inset-0 w-3.5 h-3.5 text-primary/30" />
+                <span className="absolute inset-0 overflow-hidden" style={{ width: '50%' }}>
+                  <Star className="w-3.5 h-3.5 fill-primary text-primary" />
+                </span>
+              </span>
             </div>
             <span className="text-foreground/40 text-xs tracking-wide">
-              Bewertet auf Google · 500+ Rezensionen
+              4,5 / 5 · Bewertet auf Google · 500+ Rezensionen
             </span>
           </motion.div>
         </div>

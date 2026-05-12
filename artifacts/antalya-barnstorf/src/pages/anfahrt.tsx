@@ -9,7 +9,7 @@ const contactCards = [
     icon: MapPin,
     label: 'Adresse',
     content: 'Kampstraße 2\n49406 Barnstorf',
-    sub: 'Außenbereich verfügbar',
+    sub: 'Parkplätze direkt vor dem Haus',
     href: MAPS_URL,
     external: true,
   },
@@ -33,34 +33,51 @@ const contactCards = [
 
 export default function Anfahrt() {
   return (
-    <div className="min-h-screen bg-background text-foreground pt-16">
+    <div className="min-h-screen bg-background text-foreground">
 
-      {/* Page header */}
-      <div className="bg-card border-b border-border py-16 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="text-primary tracking-[0.3em] uppercase text-xs font-medium block mb-4">
-            So finden Sie uns
-          </span>
-          <h1
-            className="text-4xl md:text-6xl tracking-wide"
-            style={{ fontFamily: 'Cinzel, serif' }}
+      {/* ── Atmospheric header ── */}
+      <div className="relative pt-16 overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              'radial-gradient(ellipse 75% 60% at 50% 100%, rgba(140,30,20,0.15) 0%, transparent 70%), radial-gradient(ellipse 45% 35% at 10% 20%, rgba(20,60,30,0.10) 0%, transparent 60%)',
+          }}
+        />
+        <div className="relative z-10 py-24 md:py-32 text-center px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
           >
-            Anfahrt
-          </h1>
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <div className="w-16 h-px bg-border" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-primary" />
-            <div className="w-16 h-px bg-border" />
-          </div>
-        </motion.div>
+            <div className="flex justify-center mb-6">
+              <div className="w-10 h-10 border border-primary/40 flex items-center justify-center">
+                <MapPin className="w-4 h-4 text-primary" />
+              </div>
+            </div>
+            <span className="text-primary tracking-[0.3em] uppercase text-xs font-medium block mb-5">
+              So finden Sie uns
+            </span>
+            <h1
+              className="text-5xl md:text-7xl tracking-wide mb-8"
+              style={{ fontFamily: 'Cinzel, serif' }}
+            >
+              Anfahrt
+            </h1>
+            <p className="text-foreground/50 font-serif italic text-base max-w-md mx-auto leading-relaxed">
+              Wir sind mitten in Barnstorf — leicht erreichbar, mit Parkplätzen direkt vor der Tür.
+            </p>
+            <div className="flex items-center justify-center gap-4 mt-10">
+              <div className="w-20 h-px bg-border" />
+              <div className="w-1.5 h-1.5 rotate-45 bg-primary" />
+              <div className="w-20 h-px bg-border" />
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Contact cards */}
-      <div className="max-w-5xl mx-auto px-6 pt-20 pb-12">
+      {/* ── Contact cards ── */}
+      <section className="max-w-5xl mx-auto px-6 pb-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {contactCards.map(({ icon: Icon, label, content, sub, href, external }, i) => (
             <motion.a
@@ -68,31 +85,32 @@ export default function Anfahrt() {
               href={href}
               target={external ? '_blank' : undefined}
               rel={external ? 'noreferrer' : undefined}
-              data-testid={`contact-card-${i}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
+              transition={{ duration: 0.6, delay: 0.1 + i * 0.12 }}
               className="group relative bg-card border border-border hover:border-primary/60 transition-all duration-300 p-8 flex flex-col gap-4 cursor-pointer overflow-hidden"
             >
-              {/* Red left accent on hover */}
+              {/* Warm glow on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                style={{ backgroundImage: 'radial-gradient(ellipse at 0% 100%, rgba(140,30,20,0.07) 0%, transparent 60%)' }} />
               <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
 
               <div className="flex items-center justify-between">
                 <div className="w-11 h-11 bg-muted border border-border group-hover:border-primary/40 flex items-center justify-center transition-colors duration-300">
                   <Icon className="w-5 h-5 text-primary" />
                 </div>
-                <ExternalLink className="w-4 h-4 text-foreground/20 group-hover:text-primary/60 transition-colors duration-300" />
+                <ExternalLink className="w-3.5 h-3.5 text-foreground/15 group-hover:text-primary/50 transition-colors duration-300" />
               </div>
 
               <div>
-                <p className="text-xs text-foreground/40 tracking-widest uppercase mb-2 font-medium">
+                <p className="text-[10px] text-foreground/35 tracking-widest uppercase mb-2 font-medium">
                   {label}
                 </p>
                 <p className="text-foreground text-lg font-serif leading-snug whitespace-pre-line group-hover:text-primary/90 transition-colors duration-300">
                   {content}
                 </p>
                 {sub && (
-                  <p className="text-foreground/40 text-xs mt-2 leading-relaxed">{sub}</p>
+                  <p className="text-foreground/35 text-xs mt-2 leading-relaxed">{sub}</p>
                 )}
               </div>
             </motion.a>
@@ -104,8 +122,7 @@ export default function Anfahrt() {
           href={MAPS_URL}
           target="_blank"
           rel="noreferrer"
-          data-testid="maps-cta"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45 }}
           className="mt-4 flex items-center justify-between w-full bg-primary text-white hover:bg-primary/85 transition-colors duration-300 px-8 py-5 group"
@@ -113,27 +130,25 @@ export default function Anfahrt() {
           <div className="flex items-center gap-4">
             <MapPin className="w-5 h-5 shrink-0" />
             <div>
-              <p className="text-xs text-white/60 tracking-widest uppercase mb-0.5">Google Maps</p>
+              <p className="text-xs text-white/55 tracking-widest uppercase mb-0.5">Google Maps</p>
               <p className="text-white font-semibold tracking-wide">Route planen</p>
             </div>
           </div>
           <svg
             className="w-5 h-5 text-white/50 group-hover:translate-x-1 transition-transform duration-300"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor"
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </motion.a>
-      </div>
+      </section>
 
-      {/* Full-width map */}
+      {/* ── Full-width map ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="h-[420px] md:h-[520px] border-t border-border"
+        transition={{ duration: 1, delay: 0.55 }}
+        className="h-[420px] md:h-[520px] border-t border-border mt-6"
       >
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2376.8!2d8.498!3d52.7019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b64c4b7fef5f9d%3A0x1234!2sPizzeria+%26+Imbiss+Antalya!5e0!3m2!1sde!2sde!4v1"

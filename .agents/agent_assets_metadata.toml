@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "dtdrkOIwMbiK6SuWh99zv"
+uri = "file://artifacts/antalya-barnstorf/public/images/hero-bg.png"
+type = "image"
+title = "Atmospheric Mediterranean restaurant interior"
+
+[[generated]]
+id = "wkNIHkeTCpdMOP5oo-gu6"
+uri = "file://artifacts/antalya-barnstorf/public/images/about-food.png"
+type = "image"
+title = "Rustic Turkish Mediterranean food spread"

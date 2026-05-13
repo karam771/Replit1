@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Star, ImageIcon, Heart } from 'lucide-react';
+import { Star, Heart } from 'lucide-react';
+import imgAussen from '@assets/eb48016f-2280-442e-a4cb-4e1912fe6187_1778666353090.jpeg';
 
 export default function About() {
   return (
@@ -11,7 +12,7 @@ export default function About() {
           className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: 'radial-gradient(ellipse 80% 120% at 50% 120%, rgba(140,30,20,0.13) 0%, transparent 65%)' }}
         />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-10 md:py-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-10 md:py-12">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -32,28 +33,47 @@ export default function About() {
               </h1>
             </div>
           </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-foreground/45 font-serif italic text-sm max-w-xs leading-relaxed md:text-right"
-          >
-            Familienbetrieb mit Herzlichkeit — verwurzelt in Barnstorf.
-          </motion.p>
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="max-w-6xl mx-auto px-6 pb-24 md:pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+      {/* ── Exterior photo banner ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.1 }}
+        className="relative w-full overflow-hidden"
+        style={{ maxHeight: '480px' }}
+      >
+        <img
+          src={imgAussen}
+          alt="Pizzeria und Imbiss Antalya Barnstorf — Außenansicht"
+          className="w-full object-cover object-center"
+          style={{ maxHeight: '480px' }}
+        />
+        {/* Subtle gradient at top and bottom to blend */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80" />
+        {/* Overlay label */}
+        <div className="absolute bottom-0 left-0 right-0 px-8 pb-8 max-w-6xl mx-auto">
+          <p className="text-white/70 text-xs tracking-[0.3em] uppercase font-medium">
+            Kampstraße 2 · 49406 Barnstorf
+          </p>
+        </div>
+      </motion.div>
+
+      {/* ── Main content ── */}
+      <div className="max-w-5xl mx-auto px-6 py-20 md:py-28 pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-16 items-start">
 
           {/* Text */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.1 }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2 }}
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-6 leading-tight">
+            <h2
+              className="text-3xl md:text-4xl mb-6 leading-tight"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
               Tradition &amp; Herzlichkeit
             </h2>
             <div className="flex items-center gap-3 mb-8">
@@ -76,40 +96,31 @@ export default function About() {
                 was unsere Gäste seit Jahren an uns schätzen.
               </p>
             </div>
+          </motion.div>
 
-            {/* Rating */}
-            <div className="flex items-center gap-4 p-5 border border-border bg-card mt-10">
-              <div className="flex gap-0.5">
+          {/* Rating card */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.35 }}
+            className="lg:pt-[4.5rem]"
+          >
+            <div className="bg-card border border-border p-7 min-w-[220px] relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
+              <div className="flex gap-1 mb-3">
                 {[1, 2, 3, 4, 5].map(i => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i <= 4 ? 'fill-primary text-primary' : 'text-foreground/25'}`}
+                    className={`w-4 h-4 ${i <= 4 ? 'fill-primary text-primary' : 'text-foreground/20'}`}
                   />
                 ))}
               </div>
-              <span className="text-foreground/75 text-sm">
-                <strong className="text-foreground">4,4 / 5</strong> — über 500 Bewertungen
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Image placeholder */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.25 }}
-            className="relative"
-          >
-            <div className="aspect-[4/5] border border-border bg-muted flex flex-col items-center justify-center gap-4 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary" />
-              <ImageIcon className="w-14 h-14 text-foreground/12" />
-              <div className="text-center">
-                <p className="text-foreground/25 text-xs tracking-widest uppercase mb-1">Bild vom Lokal</p>
-                <p className="text-foreground/18 text-xs">Wird noch eingefügt</p>
-              </div>
+              <p className="text-2xl font-semibold text-foreground mb-0.5" style={{ fontFamily: "'Playfair Display', serif" }}>
+                4,4 / 5
+              </p>
+              <p className="text-foreground/45 text-xs tracking-wide">
+                Über 500 Bewertungen
+              </p>
             </div>
           </motion.div>
         </div>

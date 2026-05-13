@@ -6,12 +6,17 @@ import imgGalerie from '@assets/IMG_5031_1778665530912.jpeg';
 import imgBestellen from '@assets/ebede319-d185-4925-8b01-618799560c35_1778665585089.jpeg';
 const logoPath = '/images/logo.png';
 
+import imgDoener from '@assets/bestseller_doener.png';
+import imgPizza from '@assets/bestseller_pizza.png';
+import imgPanini from '@assets/bestseller_panini.png';
+
 const bestsellers = [
-  { title: 'Döner Kebap' },
-  { title: 'Pizza Kebap Hollandaise' },
-  { title: 'Paninis mit Spinat und Käse' },
-  { title: 'Rollo Antalya' },
+  { title: 'Döner Kebap', img: imgDoener },
+  { title: 'Pizza Kebap Hollandaise', img: imgPizza },
+  { title: 'Paninis mit Spinat und Käse', img: imgPanini },
+  { title: 'Rollo Antalya', img: imgDoener }, // Placeholder
 ];
+
 
 const reviews = [
   {
@@ -281,11 +286,15 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: idx * 0.12 }}
                 className="group border border-border bg-card hover:border-primary/50 transition-colors duration-300 overflow-hidden"
               >
-                <div className="relative aspect-square bg-muted flex flex-col items-center justify-center border-b border-border overflow-hidden">
-                  <ImageIcon className="w-10 h-10 text-foreground/15 mb-2" />
-                  <span className="text-xs text-foreground/20 tracking-widest uppercase">Bild folgt</span>
+                <div className="relative aspect-square bg-muted overflow-hidden">
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-border group-hover:bg-primary transition-colors duration-300" />
                 </div>
+
                 <div className="p-5">
                   <h3 className="font-serif text-base text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
                     {item.title}

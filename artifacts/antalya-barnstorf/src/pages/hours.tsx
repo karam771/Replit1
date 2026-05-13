@@ -39,20 +39,12 @@ export default function Hours() {
               </div>
               <h1
                 className="text-3xl md:text-4xl tracking-wide"
-                style={{ fontFamily: 'Cinzel, serif' }}
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Öffnungszeiten
               </h1>
             </div>
           </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-foreground/45 font-serif italic text-sm max-w-xs leading-relaxed md:text-right"
-          >
-            Fast jeden Tag frisch für Sie da — Küche bis Ladenschluss.
-          </motion.p>
         </div>
       </div>
 

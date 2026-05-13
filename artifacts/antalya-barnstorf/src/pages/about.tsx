@@ -26,7 +26,7 @@ export default function About() {
               </div>
               <h1
                 className="text-3xl md:text-4xl tracking-wide"
-                style={{ fontFamily: 'Cinzel, serif' }}
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Über uns
               </h1>

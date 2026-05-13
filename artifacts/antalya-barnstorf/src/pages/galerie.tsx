@@ -27,7 +27,7 @@ export default function Galerie() {
               </span>
               <h1
                 className="text-5xl md:text-7xl font-semibold tracking-wide"
-                style={{ fontFamily: 'Cinzel, serif' }}
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Atmosphäre
               </h1>

@@ -1,29 +1,5 @@
 import { motion } from 'framer-motion';
-import { FileText, ExternalLink, UtensilsCrossed } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
-const categories = [
-  {
-    name: 'Döner & Kebap',
-    desc: 'Klassischer Döner, Lahmacun, Dürüm — frisch vom Spieß, täglich zubereitet.',
-    items: ['Döner Kebap', 'Dürüm Döner', 'Lahmacun', 'Iskender'],
-  },
-  {
-    name: 'Pizzen',
-    desc: 'Hausgemachter Teig, reichhaltige Beläge — von klassisch bis mediterran.',
-    items: ['Pizza Kebap Hollandaise', 'Pizza Margherita', 'Pizza Salami', 'Pizza Spezial'],
-  },
-  {
-    name: 'Paninis & Rollos',
-    desc: 'Knusprig getoastet, großzügig gefüllt — perfekt für zwischendurch.',
-    items: ['Panini Spinat & Käse', 'Rollo Antalya', 'Panini Hähnchen', 'Rollo Veggie'],
-  },
-  {
-    name: 'Nudelgerichte',
-    desc: 'Warme Pasta-Kreationen, mediterran gewürzt und hausgemacht.',
-    items: ['Spaghetti Bolognese', 'Penne Arabiata', 'Nudeln mit Sahnesauce', 'Tortellini'],
-  },
-];
+import { FileText, ExternalLink, UtensilsCrossed, Phone, Bike } from 'lucide-react';
 
 export default function Menu() {
   return (
@@ -35,7 +11,7 @@ export default function Menu() {
           className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: 'radial-gradient(ellipse 80% 120% at 50% 120%, rgba(140,30,20,0.14) 0%, transparent 65%)' }}
         />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-10 md:py-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-10 md:py-12">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,121 +26,129 @@ export default function Menu() {
               </div>
               <h1
                 className="text-3xl md:text-4xl tracking-wide"
-                style={{ fontFamily: 'Cinzel, serif' }}
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Speisekarte
               </h1>
             </div>
           </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-foreground/45 font-serif italic text-sm max-w-xs leading-relaxed md:text-right"
-          >
-            Von Döner über Pizza bis Nudelgerichte — für jeden Geschmack.
-          </motion.p>
         </div>
       </div>
 
-      {/* ── Category preview grid ── */}
-      <section className="max-w-6xl mx-auto px-6 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {categories.map((cat, i) => (
-            <motion.div
-              key={cat.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
-              className="group bg-card border border-border hover:border-primary/40 transition-all duration-300 p-7 relative overflow-hidden"
-            >
-              {/* Subtle red glow on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ backgroundImage: 'radial-gradient(ellipse at 0% 100%, rgba(140,30,20,0.08) 0%, transparent 60%)' }} />
-              {/* Top accent */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-border group-hover:bg-primary/60 transition-colors duration-300" />
+      <div className="max-w-4xl mx-auto px-6 py-14 space-y-6">
 
-              <h3
-                className="text-lg font-semibold tracking-wide mb-2 group-hover:text-primary transition-colors duration-300"
-                style={{ fontFamily: 'Cinzel, serif' }}
-              >
-                {cat.name}
-              </h3>
-              <p className="text-foreground/50 text-sm font-serif italic mb-5 leading-relaxed">
-                {cat.desc}
-              </p>
-              <ul className="flex flex-wrap gap-2">
-                {cat.items.map(item => (
-                  <li
-                    key={item}
-                    className="text-xs text-foreground/55 border border-border/60 px-2.5 py-1 tracking-wide"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── PDF download card ── */}
-      <section className="max-w-3xl mx-auto px-6 pb-28">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="border border-primary/30 bg-card p-12 md:p-16 relative text-center"
-          style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(140,30,20,0.07) 0%, transparent 70%)' }}
-        >
-          {/* Corner accents */}
-          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary" />
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary" />
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary" />
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary" />
-
-          <FileText className="w-12 h-12 text-primary mx-auto mb-6" />
-          <h2
-            className="text-2xl md:text-3xl mb-3 tracking-wide"
-            style={{ fontFamily: 'Cinzel, serif' }}
+        {/* ── Service info cards ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Lieferservice */}
+          <motion.a
+            href="tel:05442804581"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="group relative bg-card border border-border hover:border-primary/50 transition-all duration-300 p-7 flex flex-col gap-3 overflow-hidden cursor-pointer"
           >
-            Vollständige Speisekarte
-          </h2>
-          <p className="text-foreground/50 text-sm font-serif italic mb-10 leading-relaxed max-w-sm mx-auto">
-            Alle Gerichte, Preise und Variationen — als PDF zum Öffnen oder Herunterladen.
-          </p>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+              style={{ backgroundImage: 'radial-gradient(ellipse at 0% 100%, rgba(140,30,20,0.07) 0%, transparent 60%)' }} />
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/speisekarte.pdf" target="_blank" rel="noreferrer">
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/85 rounded-none px-10 py-6 text-xs tracking-widest uppercase"
-                style={{ fontFamily: 'Cinzel, serif' }}
+            <div className="w-10 h-10 bg-primary/10 border border-primary/25 flex items-center justify-center">
+              <Bike className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
+                Lieferservice
+              </h3>
+              <p className="text-foreground/55 text-sm leading-relaxed">
+                Wir liefern direkt zu Ihnen nach Hause. Einfach anrufen!
+              </p>
+            </div>
+            <div className="flex items-center gap-2 mt-1 text-primary text-sm font-medium">
+              <Phone className="w-3.5 h-3.5" />
+              05442 804581
+            </div>
+          </motion.a>
+
+          {/* Abholung */}
+          <motion.a
+            href="tel:05442804581"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="group relative bg-card border border-border hover:border-primary/50 transition-all duration-300 p-7 flex flex-col gap-3 overflow-hidden cursor-pointer"
+          >
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+              style={{ backgroundImage: 'radial-gradient(ellipse at 0% 100%, rgba(140,30,20,0.07) 0%, transparent 60%)' }} />
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
+
+            <div className="w-10 h-10 bg-primary/10 border border-primary/25 flex items-center justify-center">
+              <UtensilsCrossed className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
+                Abholung
+              </h3>
+              <p className="text-foreground/55 text-sm leading-relaxed">
+                Telefonisch vorbestellen und gleich abholen — schnell &amp; frisch.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 mt-1 text-primary text-sm font-medium">
+              <Phone className="w-3.5 h-3.5" />
+              05442 804581
+            </div>
+          </motion.a>
+        </div>
+
+        {/* ── PDF section ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.2 }}
+          className="bg-card border border-border overflow-hidden"
+        >
+          {/* Top accent bar */}
+          <div className="h-0.5 bg-gradient-to-r from-primary/60 via-primary to-primary/60" />
+
+          <div className="p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-8">
+            {/* Icon + text */}
+            <div className="flex items-start gap-5 flex-1">
+              <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5">
+                <FileText className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h2
+                  className="text-xl md:text-2xl tracking-wide mb-1.5"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  Vollständige Speisekarte
+                </h2>
+                <p className="text-foreground/50 text-sm leading-relaxed">
+                  Alle Gerichte, Preise und Variationen — als PDF zum Öffnen oder Herunterladen.
+                </p>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:shrink-0">
+              <a
+                href="/speisekarte.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 bg-primary text-white hover:bg-primary/85 transition-colors px-7 py-3 text-sm font-semibold tracking-wide whitespace-nowrap"
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
+                <ExternalLink className="w-4 h-4" />
                 Speisekarte öffnen
-              </Button>
-            </a>
-            <a href="/speisekarte.pdf" download>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground rounded-none px-10 py-6 text-xs tracking-widest uppercase"
-                style={{ fontFamily: 'Cinzel, serif' }}
+              </a>
+              <a
+                href="/speisekarte.pdf"
+                download
+                className="flex items-center justify-center gap-2 border border-border text-foreground/65 hover:border-primary hover:text-primary transition-colors px-7 py-3 text-sm font-medium tracking-wide whitespace-nowrap"
               >
                 PDF herunterladen
-              </Button>
-            </a>
+              </a>
+            </div>
           </div>
-
-          <p className="mt-8 text-foreground/30 text-xs">
-            Fragen?{' '}
-            <a href="tel:05442804581" className="text-primary hover:underline">
-              05442 804581
-            </a>
-          </p>
         </motion.div>
-      </section>
+      </div>
     </div>
   );
 }

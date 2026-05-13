@@ -167,7 +167,7 @@ export default function Home() {
                   </p>
                   <h3
                     className="text-2xl md:text-3xl font-semibold tracking-wider text-white group-hover:text-primary transition-colors duration-300"
-                    style={{ fontFamily: 'Cinzel, serif' }}
+                    style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {card.label}
                   </h3>
@@ -217,7 +217,7 @@ export default function Home() {
             </span>
             <h2
               className="text-4xl md:text-6xl font-semibold tracking-wide mb-6"
-              style={{ fontFamily: 'Cinzel, serif' }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Bestseller
             </h2>
@@ -294,7 +294,7 @@ export default function Home() {
           >
             <h2
               className="text-4xl md:text-5xl font-semibold tracking-wide mb-5"
-              style={{ fontFamily: 'Cinzel, serif' }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Was unsere Gäste sagen
             </h2>

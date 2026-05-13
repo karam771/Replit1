@@ -25,7 +25,7 @@ export default function Footer() {
               key={path}
               href={path}
               className="text-xs tracking-widest uppercase text-foreground/40 hover:text-primary transition-colors"
-              style={{ fontFamily: 'Cinzel, serif' }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               {label}
             </Link>

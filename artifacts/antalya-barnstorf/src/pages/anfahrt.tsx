@@ -8,7 +8,7 @@ const contactCards = [
   {
     icon: MapPin,
     label: 'Adresse',
-    content: 'Kampstraße 2\n49406 Barnstorf',
+    content: 'Pizzeria und Imbiss Antalya Barnstorf\nKampstraße 2\n49406 Barnstorf',
     sub: 'Parkplätze direkt vor dem Haus',
     href: MAPS_URL,
     external: true,
@@ -17,7 +17,7 @@ const contactCards = [
     icon: Phone,
     label: 'Telefon',
     content: '05442 804581',
-    sub: 'Di – Sa 11:30 – 21:50 · So 12:00 – 21:50',
+    sub: null,
     href: 'tel:05442804581',
     external: false,
   },
@@ -56,20 +56,12 @@ export default function Anfahrt() {
               </div>
               <h1
                 className="text-3xl md:text-4xl tracking-wide"
-                style={{ fontFamily: 'Cinzel, serif' }}
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Anfahrt
               </h1>
             </div>
           </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-foreground/45 font-serif italic text-sm max-w-xs leading-relaxed md:text-right"
-          >
-            Mitten in Barnstorf — Parkplätze direkt vor der Tür.
-          </motion.p>
         </div>
       </div>
 

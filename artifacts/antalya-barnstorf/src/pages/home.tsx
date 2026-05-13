@@ -81,10 +81,6 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: 'easeOut' }}
           >
-            <p className="text-primary tracking-[0.35em] uppercase text-xs font-medium block mb-10">
-              Willkommen in Barnstorf
-            </p>
-
             <div className="flex justify-center mb-10">
               <img
                 src={logoPath}

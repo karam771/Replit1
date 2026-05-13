@@ -18,44 +18,41 @@ export default function Hours() {
   return (
     <div className="min-h-screen bg-background text-foreground">
 
-      {/* ── Atmospheric header ── */}
-      <div className="relative pt-16 overflow-hidden">
+      {/* ── Compact header ── */}
+      <div className="relative pt-16 overflow-hidden border-b border-border">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              'radial-gradient(ellipse 70% 55% at 50% 100%, rgba(20,60,30,0.22) 0%, transparent 70%), radial-gradient(ellipse 40% 35% at 80% 10%, rgba(140,30,20,0.08) 0%, transparent 60%)',
-          }}
+          style={{ backgroundImage: 'radial-gradient(ellipse 80% 120% at 50% 120%, rgba(20,60,30,0.18) 0%, transparent 65%)' }}
         />
-        <div className="relative z-10 py-24 md:py-32 text-center px-6">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-10 md:py-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="flex justify-center mb-6">
-              <div className="w-10 h-10 border border-primary/40 flex items-center justify-center">
-                <Clock className="w-4 h-4 text-primary" />
-              </div>
-            </div>
-            <span className="text-primary tracking-[0.3em] uppercase text-xs font-medium block mb-5">
+            <span className="text-primary tracking-[0.28em] uppercase text-[10px] font-medium block mb-2">
               Wir sind für Sie da
             </span>
-            <h1
-              className="text-5xl md:text-7xl tracking-wide mb-8"
-              style={{ fontFamily: 'Cinzel, serif' }}
-            >
-              Öffnungszeiten
-            </h1>
-            <p className="text-foreground/50 font-serif italic text-base max-w-md mx-auto leading-relaxed">
-              Fast jeden Tag frisch für Sie da — die Küche läuft bis Ladenschluss.
-            </p>
-            <div className="flex items-center justify-center gap-4 mt-10">
-              <div className="w-20 h-px bg-border" />
-              <div className="w-1.5 h-1.5 rotate-45 bg-primary" />
-              <div className="w-20 h-px bg-border" />
+            <div className="flex items-center gap-4">
+              <div className="w-9 h-9 border border-primary/40 flex items-center justify-center shrink-0">
+                <Clock className="w-4 h-4 text-primary" />
+              </div>
+              <h1
+                className="text-3xl md:text-4xl tracking-wide"
+                style={{ fontFamily: 'Cinzel, serif' }}
+              >
+                Öffnungszeiten
+              </h1>
             </div>
           </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="text-foreground/45 font-serif italic text-sm max-w-xs leading-relaxed md:text-right"
+          >
+            Fast jeden Tag frisch für Sie da — Küche bis Ladenschluss.
+          </motion.p>
         </div>
       </div>
 

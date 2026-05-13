@@ -93,10 +93,22 @@ export default function Home() {
               />
             </div>
 
-            <p className="max-w-xl mx-auto text-base md:text-lg text-foreground/65 mb-12 font-light leading-relaxed font-serif italic">
-              Mediterrane Gastfreundschaft und handgemachte Spezialitäten —
-              ein Stück Urlaub, direkt um die Ecke.
-            </p>
+            <div className="flex flex-col items-center gap-3 mb-12">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-px bg-primary/50" />
+                <span className="text-primary/80 tracking-[0.3em] uppercase text-[10px] font-medium">
+                  Barnstorf · Niedersachsen
+                </span>
+                <div className="w-10 h-px bg-primary/50" />
+              </div>
+              <p
+                className="text-2xl md:text-3xl text-foreground/85 font-light leading-snug text-center"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Ein Stück Türkei,{' '}
+                <span className="italic text-foreground/60">mitten in Niedersachsen.</span>
+              </p>
+            </div>
 
             <div className="flex items-center justify-center gap-4 mb-12">
               <div className="w-16 h-px bg-primary/50" />

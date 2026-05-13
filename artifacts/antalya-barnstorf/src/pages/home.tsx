@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
-import { ImageIcon, Phone, UtensilsCrossed, Star } from 'lucide-react';
+import { Phone, UtensilsCrossed, Star, ImageIcon } from 'lucide-react';
+import imgSpeisekarte from '@assets/IMG_0831_1778665438064.jpeg';
+import imgGalerie from '@assets/IMG_5031_1778665530912.jpeg';
+import imgBestellen from '@assets/ebede319-d185-4925-8b01-618799560c35_1778665585089.jpeg';
 const logoPath = '/images/logo.png';
 
 const bestsellers = [
@@ -39,21 +42,21 @@ const quickLinks = [
     sub: 'Unsere Köstlichkeiten',
     href: '/speisekarte',
     isLink: true,
-    bg: 'from-stone-900/60 via-stone-900/30 to-transparent',
+    img: imgSpeisekarte,
   },
   {
-    label: 'ATMOSPHÄRE',
+    label: 'GALERIE',
     sub: 'Unser Restaurant',
     href: '/galerie',
     isLink: true,
-    bg: 'from-stone-900/60 via-stone-900/30 to-transparent',
+    img: imgGalerie,
   },
   {
-    label: 'JETZT ANRUFEN',
+    label: 'JETZT BESTELLEN',
     sub: '05442 804581',
     href: 'tel:05442804581',
     isLink: false,
-    bg: 'from-stone-900/60 via-stone-900/30 to-transparent',
+    img: imgBestellen,
   },
 ];
 
@@ -127,71 +130,105 @@ export default function Home() {
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-0"
-        >
-          {quickLinks.map((card, i) => {
-            const inner = (
-              <div className="relative h-72 md:h-80 overflow-hidden group cursor-pointer">
-                {/* Background placeholder with atmospheric gradient */}
-                <div
-                  className="absolute inset-0 bg-card transition-transform duration-700 group-hover:scale-105"
-                  style={{
-                    backgroundImage: i === 0
-                      ? 'radial-gradient(ellipse at 30% 60%, rgba(120,40,20,0.35) 0%, transparent 70%), linear-gradient(135deg, #1a1008 0%, #0e0e0e 100%)'
-                      : i === 1
-                      ? 'radial-gradient(ellipse at 60% 40%, rgba(20,60,30,0.4) 0%, transparent 70%), linear-gradient(135deg, #0a140d 0%, #0e0e0e 100%)'
-                      : 'radial-gradient(ellipse at 50% 70%, rgba(80,20,20,0.4) 0%, transparent 70%), linear-gradient(135deg, #14080a 0%, #0e0e0e 100%)',
-                  }}
+        {/* Asymmetric grid: tall portrait left + two stacked right */}
+        <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-[1fr_1fr] border-t border-border">
+
+          {/* Card 1 — Speisekarte (portrait, spans 2 rows) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="md:row-span-2 md:border-r border-border"
+          >
+            <Link href="/speisekarte">
+              <div className="relative h-80 md:h-full md:min-h-[580px] overflow-hidden group cursor-pointer">
+                <img
+                  src={imgSpeisekarte}
+                  alt="Speisekarte"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-
-                {/* Placeholder icon */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <ImageIcon className="w-14 h-14 text-foreground/8" />
-                </div>
-
-                {/* Bottom overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-
-                {/* Hover top accent line */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/25 to-transparent" />
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
-
-                {/* Text */}
                 <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <p className="text-foreground/45 text-[10px] tracking-[0.3em] uppercase mb-2 font-medium">
-                    {card.sub}
+                  <p className="text-foreground/50 text-[10px] tracking-[0.3em] uppercase mb-2 font-medium">
+                    Unsere Köstlichkeiten
                   </p>
                   <h3
-                    className="text-2xl md:text-3xl font-semibold tracking-wider text-white group-hover:text-primary transition-colors duration-300"
+                    className="text-2xl md:text-4xl font-semibold tracking-wide text-white group-hover:text-primary transition-colors duration-300"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
-                    {card.label}
+                    Speisekarte
                   </h3>
                 </div>
               </div>
-            );
+            </Link>
+          </motion.div>
 
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                className={`border-t border-border ${i < 2 ? 'md:border-r' : ''}`}
-              >
-                {card.isLink
-                  ? <Link href={card.href}>{inner}</Link>
-                  : <a href={card.href}>{inner}</a>
-                }
-              </motion.div>
-            );
-          })}
-        </motion.div>
+          {/* Card 2 — Galerie */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="border-t border-border md:border-t-0"
+          >
+            <Link href="/galerie">
+              <div className="relative h-72 md:h-[290px] overflow-hidden group cursor-pointer">
+                <img
+                  src={imgGalerie}
+                  alt="Galerie"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/25 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <p className="text-foreground/50 text-[10px] tracking-[0.3em] uppercase mb-2 font-medium">
+                    Unser Restaurant
+                  </p>
+                  <h3
+                    className="text-2xl md:text-3xl font-semibold tracking-wide text-white group-hover:text-primary transition-colors duration-300"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    Galerie
+                  </h3>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Card 3 — Jetzt bestellen */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="border-t border-border"
+          >
+            <a href="tel:05442804581">
+              <div className="relative h-72 md:h-[290px] overflow-hidden group cursor-pointer">
+                <img
+                  src={imgBestellen}
+                  alt="Jetzt bestellen"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/25 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <p className="text-foreground/50 text-[10px] tracking-[0.3em] uppercase mb-2 font-medium">
+                    05442 804581
+                  </p>
+                  <h3
+                    className="text-2xl md:text-3xl font-semibold tracking-wide text-white group-hover:text-primary transition-colors duration-300"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    Jetzt bestellen
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── Bestseller ── */}

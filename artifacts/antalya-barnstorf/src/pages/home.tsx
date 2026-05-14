@@ -4,7 +4,7 @@ import { Phone, UtensilsCrossed, Star, ImageIcon } from 'lucide-react';
 import imgSpeisekarte from '@assets/IMG_0831_1778665438064.jpeg';
 import imgGalerie from '@assets/IMG_5031_1778665530912.jpeg';
 import imgBestellen from '@assets/ebede319-d185-4925-8b01-618799560c35_1778665585089.jpeg';
-const logoPath = '/images/logo.png';
+const logoPath = import.meta.env.BASE_URL + 'images/logo.png';
 
 import imgDoener from '@assets/bestseller_doener.png';
 import imgPizza from '@assets/bestseller_pizza.png';
@@ -73,7 +73,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-bg.png"
+            src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
             alt="Atmosphärisches Restaurant"
             className="w-full h-full object-cover object-center opacity-35"
           />

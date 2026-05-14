@@ -1,7 +1,7 @@
 import { useLocation, Link } from 'wouter';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-const logoPath = '/images/logo.png';
+const logoPath = import.meta.env.BASE_URL + 'images/logo.png';
 
 const navItems = [
   { path: '/',                 label: 'Start' },

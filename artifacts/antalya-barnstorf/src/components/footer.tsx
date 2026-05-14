@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-const logoPath = '/images/logo.png';
+const logoPath = import.meta.env.BASE_URL + 'images/logo.png';
 
 export default function Footer() {
   return (

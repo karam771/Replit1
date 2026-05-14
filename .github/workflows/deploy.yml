@@ -45,7 +45,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./artifacts/antalya-barnstorf/dist"
+          path: "./artifacts/antalya-barnstorf/dist/public"
+
 
   deploy:
     environment:

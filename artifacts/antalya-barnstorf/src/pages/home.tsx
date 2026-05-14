@@ -276,7 +276,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
             {bestsellers.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -295,8 +295,8 @@ export default function Home() {
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-border group-hover:bg-primary transition-colors duration-300" />
                 </div>
 
-                <div className="p-5">
-                  <h3 className="font-serif text-base text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
+                <div className="p-3 md:p-5">
+                  <h3 className="font-serif text-xs md:text-base text-foreground group-hover:text-primary transition-colors duration-300 leading-tight md:leading-snug">
                     {item.title}
                   </h3>
                 </div>

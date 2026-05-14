@@ -74,5 +74,6 @@ onlyBuiltDependencies:
   - msw
   - unrs-resolver
 
-  # Overrides removed to allow multi-platform support (Windows/macOS/Linux)
+overrides:
+  # Overrides adjusted for multi-platform support
   esbuild: "0.27.3"

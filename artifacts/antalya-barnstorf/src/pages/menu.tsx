@@ -37,72 +37,11 @@ export default function Menu() {
 
       <div className="max-w-4xl mx-auto px-6 py-14 space-y-6">
 
-        {/* ── Service info cards ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Lieferservice */}
-          <motion.a
-            href="tel:05442804581"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="group relative bg-card border border-border hover:border-primary/50 transition-all duration-300 p-7 flex flex-col gap-3 overflow-hidden cursor-pointer"
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-              style={{ backgroundImage: 'radial-gradient(ellipse at 0% 100%, rgba(140,30,20,0.07) 0%, transparent 60%)' }} />
-            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
-
-            <div className="w-10 h-10 bg-primary/10 border border-primary/25 flex items-center justify-center">
-              <Bike className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
-                Lieferservice
-              </h3>
-              <p className="text-foreground/55 text-sm leading-relaxed">
-                Wir liefern direkt zu Ihnen nach Hause. Einfach anrufen!
-              </p>
-            </div>
-            <div className="flex items-center gap-2 mt-1 text-primary text-sm font-medium">
-              <Phone className="w-3.5 h-3.5" />
-              05442 804581
-            </div>
-          </motion.a>
-
-          {/* Abholung */}
-          <motion.a
-            href="tel:05442804581"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            className="group relative bg-card border border-border hover:border-primary/50 transition-all duration-300 p-7 flex flex-col gap-3 overflow-hidden cursor-pointer"
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-              style={{ backgroundImage: 'radial-gradient(ellipse at 0% 100%, rgba(140,30,20,0.07) 0%, transparent 60%)' }} />
-            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
-
-            <div className="w-10 h-10 bg-primary/10 border border-primary/25 flex items-center justify-center">
-              <UtensilsCrossed className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
-                Abholung
-              </h3>
-              <p className="text-foreground/55 text-sm leading-relaxed">
-                Telefonisch vorbestellen und gleich abholen — schnell &amp; frisch.
-              </p>
-            </div>
-            <div className="flex items-center gap-2 mt-1 text-primary text-sm font-medium">
-              <Phone className="w-3.5 h-3.5" />
-              05442 804581
-            </div>
-          </motion.a>
-        </div>
-
         {/* ── PDF section ── */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.1 }}
           className="bg-card border border-border overflow-hidden"
         >
           {/* Top accent bar */}
@@ -148,6 +87,67 @@ export default function Menu() {
             </div>
           </div>
         </motion.div>
+
+        {/* ── Service info cards ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Lieferservice */}
+          <motion.a
+            href="tel:05442804581"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18 }}
+            className="group relative bg-card border border-border hover:border-primary/50 transition-all duration-300 p-7 flex flex-col gap-3 overflow-hidden cursor-pointer"
+          >
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+              style={{ backgroundImage: 'radial-gradient(ellipse at 0% 100%, rgba(140,30,20,0.07) 0%, transparent 60%)' }} />
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
+
+            <div className="w-10 h-10 bg-primary/10 border border-primary/25 flex items-center justify-center">
+              <Bike className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
+                Lieferservice
+              </h3>
+              <p className="text-foreground/55 text-sm leading-relaxed">
+                Wir liefern direkt zu Ihnen nach Hause. Einfach anrufen!
+              </p>
+            </div>
+            <div className="flex items-center gap-2 mt-1 text-primary text-sm font-medium">
+              <Phone className="w-3.5 h-3.5" />
+              05442 804581
+            </div>
+          </motion.a>
+
+          {/* Abholung */}
+          <motion.a
+            href="tel:05442804581"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="group relative bg-card border border-border hover:border-primary/50 transition-all duration-300 p-7 flex flex-col gap-3 overflow-hidden cursor-pointer"
+          >
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+              style={{ backgroundImage: 'radial-gradient(ellipse at 0% 100%, rgba(140,30,20,0.07) 0%, transparent 60%)' }} />
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
+
+            <div className="w-10 h-10 bg-primary/10 border border-primary/25 flex items-center justify-center">
+              <UtensilsCrossed className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
+                Abholung
+              </h3>
+              <p className="text-foreground/55 text-sm leading-relaxed">
+                Telefonisch vorbestellen und gleich abholen — schnell &amp; frisch.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 mt-1 text-primary text-sm font-medium">
+              <Phone className="w-3.5 h-3.5" />
+              05442 804581
+            </div>
+          </motion.a>
+        </div>
       </div>
     </div>
   );

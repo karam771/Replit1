@@ -72,10 +72,17 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
+          {/* Mobile Background */}
           <img
             src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
             alt="Atmosphärisches Restaurant"
-            className="w-full h-full object-cover object-center opacity-35"
+            className="block md:hidden w-full h-full object-cover object-center opacity-35"
+          />
+          {/* Desktop Background */}
+          <img
+            src={`${import.meta.env.BASE_URL}images/hero-desktop.jpg`}
+            alt="Atmosphärisches Restaurant Desktop"
+            className="hidden md:block w-full h-full object-cover object-center opacity-35"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/50 to-background" />
         </div>
@@ -419,6 +426,48 @@ export default function Home() {
             <span className="text-foreground/40 text-xs tracking-wide">
               4,5 / 5 · Bewertet auf Google · 500+ Rezensionen
             </span>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Appetit bekommen? (Integrated) ── */}
+      <section className="relative w-full h-[60vh] md:h-[80vh] min-h-[400px] md:min-h-[600px] overflow-hidden bg-black mt-20">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={`${import.meta.env.BASE_URL}images/hero-desktop.jpg`}
+            alt="Appetit bekommen?"
+            className="w-full h-full object-cover object-center opacity-70"
+          />
+          {/* Blending gradients like in the other version */}
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent z-1" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-1" />
+        </div>
+
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 
+              className="text-4xl md:text-7xl font-semibold tracking-wide mb-10 text-white"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Appetit bekommen?
+            </h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="tel:05442804581" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-primary text-white hover:bg-primary/85 transition-colors px-10 py-4 text-sm font-semibold tracking-wide">
+                  Jetzt anrufen
+                </button>
+              </a>
+              <Link href="/speisekarte" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto border border-white/30 text-white hover:border-primary hover:text-primary transition-colors px-10 py-4 text-sm font-medium tracking-wide backdrop-blur-sm bg-white/5">
+                  Zur Speisekarte
+                </button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

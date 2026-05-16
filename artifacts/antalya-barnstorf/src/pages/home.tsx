@@ -76,15 +76,15 @@ export default function Home() {
           <img
             src={`${import.meta.env.BASE_URL}images/hero-mobile.jpg`}
             alt="Atmosphärisches Restaurant Mobile"
-            className="block md:hidden w-full h-full object-cover object-center opacity-65"
+            className="block md:hidden w-full h-full object-cover object-center opacity-80"
           />
           {/* Desktop Background */}
           <img
             src={`${import.meta.env.BASE_URL}images/hero-desktop.jpg`}
             alt="Atmosphärisches Restaurant Desktop"
-            className="hidden md:block w-full h-full object-cover object-center opacity-55"
+            className="hidden md:block w-full h-full object-cover object-center opacity-65"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/50 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/25 to-background" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">

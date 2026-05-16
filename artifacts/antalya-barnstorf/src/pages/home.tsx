@@ -76,7 +76,7 @@ export default function Home() {
           <img
             src={`${import.meta.env.BASE_URL}images/hero-mobile.jpg`}
             alt="Atmosphärisches Restaurant Mobile"
-            className="block md:hidden w-full h-full object-cover object-center opacity-35"
+            className="block md:hidden w-full h-full object-cover object-center opacity-65"
           />
           {/* Desktop Background */}
           <img

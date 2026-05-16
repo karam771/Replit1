@@ -82,7 +82,7 @@ export default function Home() {
           <img
             src={`${import.meta.env.BASE_URL}images/hero-desktop.jpg`}
             alt="Atmosphärisches Restaurant Desktop"
-            className="hidden md:block w-full h-full object-cover object-center opacity-35"
+            className="hidden md:block w-full h-full object-cover object-center opacity-55"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/50 to-background" />
         </div>
@@ -436,7 +436,7 @@ export default function Home() {
           <img
             src={`${import.meta.env.BASE_URL}images/hero-desktop.jpg`}
             alt="Appetit bekommen?"
-            className="w-full h-full object-cover object-center opacity-70"
+            className="w-full h-full object-cover object-center opacity-85"
           />
           {/* Blending gradients like in the other version */}
           <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent z-1" />

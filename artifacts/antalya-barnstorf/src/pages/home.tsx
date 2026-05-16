@@ -74,8 +74,8 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {/* Mobile Background */}
           <img
-            src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
-            alt="Atmosphärisches Restaurant"
+            src={`${import.meta.env.BASE_URL}images/hero-mobile.jpg`}
+            alt="Atmosphärisches Restaurant Mobile"
             className="block md:hidden w-full h-full object-cover object-center opacity-35"
           />
           {/* Desktop Background */}

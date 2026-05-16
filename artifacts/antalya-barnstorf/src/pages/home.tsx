@@ -252,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* ── Bestseller ── */}
-      <section className="py-16 md:py-36 bg-background">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-6xl mx-auto px-6 mb-20">
           <div className="flex items-center gap-6">
             <div className="flex-1 h-px bg-border" />
@@ -311,31 +311,12 @@ export default function Home() {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="hidden md:flex flex-col sm:flex-row items-center justify-center gap-4 mt-14"
-          >
-            <a href="tel:05442804581">
-              <button className="flex items-center gap-2.5 bg-primary text-white hover:bg-primary/85 transition-colors px-8 py-4 text-sm font-semibold tracking-wide">
-                <Phone className="w-4 h-4" />
-                05442 804581
-              </button>
-            </a>
-            <Link href="/speisekarte">
-              <button className="flex items-center gap-2.5 border border-border text-foreground/70 hover:border-primary hover:text-primary transition-colors px-8 py-4 text-sm font-medium tracking-wide">
-                <UtensilsCrossed className="w-4 h-4" />
-                Zur Speisekarte
-              </button>
-            </Link>
-          </motion.div>
+          {/* CTAs removed per request */}
         </div>
       </section>
 
       {/* ── Reviews ── */}
-      <section className="py-16 md:py-32 bg-background" style={{ borderTop: '1px solid transparent', backgroundImage: 'linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--card)) 120px)' }}>
+      <section className="py-16 md:py-20 bg-background" style={{ borderTop: '1px solid transparent', backgroundImage: 'linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--card)) 120px)' }}>
         {/* Decorative separator */}
         <div className="max-w-6xl mx-auto px-6 mb-20">
           <div className="flex items-center gap-6">

@@ -4,7 +4,7 @@ import { Phone, UtensilsCrossed, Star, ImageIcon } from 'lucide-react';
 import imgSpeisekarte from '@assets/IMG_0831_1778665438064.jpeg';
 import imgGalerie from '@assets/IMG_5031_1778665530912.jpeg';
 import imgBestellen from '@assets/ebede319-d185-4925-8b01-618799560c35_1778665585089.jpeg';
-const logoPath = import.meta.env.BASE_URL + 'images/logo.png';
+const logoPath = import.meta.env.BASE_URL + 'images/logofinal.png';
 
 import imgDoener from '@assets/bestseller_doener.png';
 import imgPizza from '@assets/bestseller_pizza.png';
@@ -97,7 +97,7 @@ export default function Home() {
               <img
                 src={logoPath}
                 alt="Antalya"
-                className="h-36 md:h-48 w-auto object-contain drop-shadow-2xl mix-blend-multiply"
+                className="h-36 md:h-48 w-auto object-contain drop-shadow-2xl"
               />
             </div>
 

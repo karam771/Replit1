@@ -97,7 +97,7 @@ export default function Home() {
               <img
                 src={logoPath}
                 alt="Antalya"
-                className="h-36 md:h-48 w-auto object-contain drop-shadow-2xl mix-blend-multiply"
+                className="h-36 md:h-48 w-auto object-contain drop-shadow-2xl"
               />
             </div>
 

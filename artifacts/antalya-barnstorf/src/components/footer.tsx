@@ -20,6 +20,7 @@ export default function Footer() {
             { path: '/speisekarte',     label: 'Speisekarte' },
             { path: '/oeffnungszeiten', label: 'Öffnungszeiten' },
             { path: '/anfahrt',         label: 'Anfahrt' },
+            { path: '/impressum',       label: 'Impressum' },
           ].map(({ path, label }) => (
             <Link
               key={path}
@@ -32,7 +33,7 @@ export default function Footer() {
           ))}
         </div>
         <p className="text-foreground/30 text-xs tracking-widest uppercase">
-          © {new Date().getFullYear()} Pizzeria &amp; Imbiss Antalya Barnstorf &mdash; Alle Rechte vorbehalten.
+          © {new Date().getFullYear()} Pizzeria Antalya Barnstorf UG (haftungsbeschränkt) &mdash; Alle Rechte vorbehalten.
         </p>
       </div>
     </footer>

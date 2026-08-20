@@ -11,6 +11,7 @@ import Menu from "@/pages/menu";
 import Hours from "@/pages/hours";
 import Anfahrt from "@/pages/anfahrt";
 import Galerie from "@/pages/galerie";
+import Impressum from "@/pages/impressum";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ function Router() {
         <Route path="/oeffnungszeiten" component={Hours} />
         <Route path="/anfahrt" component={Anfahrt} />
         <Route path="/galerie" component={Galerie} />
+        <Route path="/impressum" component={Impressum} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

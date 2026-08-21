@@ -69,7 +69,7 @@ export default function Menu() {
             {/* Actions */}
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:shrink-0">
               <a
-                href="/speisekarte.pdf"
+                href={`${import.meta.env.BASE_URL}speisekarte.pdf`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center gap-2 bg-primary text-white hover:bg-primary/85 transition-colors px-7 py-3 text-sm font-semibold tracking-wide whitespace-nowrap"
@@ -78,7 +78,7 @@ export default function Menu() {
                 Speisekarte öffnen
               </a>
               <a
-                href="/speisekarte.pdf"
+                href={`${import.meta.env.BASE_URL}speisekarte.pdf`}
                 download
                 className="flex items-center justify-center gap-2 border border-border text-foreground/65 hover:border-primary hover:text-primary transition-colors px-7 py-3 text-sm font-medium tracking-wide whitespace-nowrap"
               >

@@ -73,12 +73,8 @@ export default function Galerie() {
       <section className="max-w-6xl mx-auto px-6 py-14 pb-28">
         <div className="columns-2 md:columns-3 gap-3">
           {photos.map(({ src, alt }, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: i < 6 ? i * 0.04 : 0 }}
               className="break-inside-avoid mb-3 overflow-hidden group"
             >
               <img
@@ -87,7 +83,7 @@ export default function Galerie() {
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                 loading={i < 6 ? 'eager' : 'lazy'}
               />
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>

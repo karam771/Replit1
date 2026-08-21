@@ -75,16 +75,17 @@ export default function Galerie() {
           {photos.map(({ src, alt }, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: i * 0.05 }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: i < 6 ? i * 0.04 : 0 }}
               className="break-inside-avoid mb-3 overflow-hidden group"
             >
               <img
                 src={src}
                 alt={alt}
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
+                loading={i < 6 ? 'eager' : 'lazy'}
               />
             </motion.div>
           ))}

@@ -91,23 +91,25 @@ export default function Galerie() {
           ))}
         </div>
         {/* Desktop: 3 columns */}
-        <div className="hidden md:flex gap-0.5">
-          {[0, 1, 2].map((col) => (
-            <div key={col} className="flex flex-col gap-0.5 flex-1 min-w-0">
-              {photos
-                .filter((_, i) => i % 3 === col)
-                .map(({ src, alt }, j) => (
-                  <div key={j} className="overflow-hidden group">
-                    <img
-                      src={src}
-                      alt={alt}
-                      className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                      loading={j < 2 ? 'eager' : 'lazy'}
-                    />
-                  </div>
-                ))}
-            </div>
-          ))}
+        <div className="hidden md:block max-w-6xl mx-auto px-6">
+          <div className="flex gap-2">
+            {[0, 1, 2].map((col) => (
+              <div key={col} className="flex flex-col gap-2 flex-1 min-w-0">
+                {photos
+                  .filter((_, i) => i % 3 === col)
+                  .map(({ src, alt }, j) => (
+                    <div key={j} className="overflow-hidden group">
+                      <img
+                        src={src}
+                        alt={alt}
+                        className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                        loading={j < 2 ? 'eager' : 'lazy'}
+                      />
+                    </div>
+                  ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

@@ -70,13 +70,12 @@ export default function Galerie() {
       </div>
 
       {/* ── Photo grid ── */}
-      <section className="max-w-6xl mx-auto px-6 py-14 pb-28">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <section className="py-8 pb-24">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-0.5">
           {photos.map(({ src, alt }, i) => (
             <div
               key={i}
-              className="overflow-hidden group"
-              style={{ aspectRatio: i % 5 === 1 || i % 5 === 3 ? '3/4' : '4/3' }}
+              className="overflow-hidden group aspect-[4/3]"
             >
               <img
                 src={src}

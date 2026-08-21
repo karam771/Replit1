@@ -69,18 +69,19 @@ export default function Galerie() {
         </div>
       </div>
 
-      {/* ── Masonry photo grid ── */}
+      {/* ── Photo grid ── */}
       <section className="max-w-6xl mx-auto px-6 py-14 pb-28">
-        <div className="columns-2 md:columns-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {photos.map(({ src, alt }, i) => (
             <div
               key={i}
-              className="break-inside-avoid mb-3 overflow-hidden group"
+              className="overflow-hidden group"
+              style={{ aspectRatio: i % 5 === 1 || i % 5 === 3 ? '3/4' : '4/3' }}
             >
               <img
                 src={src}
                 alt={alt}
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading={i < 6 ? 'eager' : 'lazy'}
               />
             </div>

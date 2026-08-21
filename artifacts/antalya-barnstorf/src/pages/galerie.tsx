@@ -69,20 +69,43 @@ export default function Galerie() {
         </div>
       </div>
 
-      {/* ── Photo grid ── */}
+      {/* ── Masonry grid ── */}
       <section className="py-8 pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-0.5">
-          {photos.map(({ src, alt }, i) => (
-            <div
-              key={i}
-              className="overflow-hidden group aspect-[4/3]"
-            >
-              <img
-                src={src}
-                alt={alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading={i < 6 ? 'eager' : 'lazy'}
-              />
+        {/* Mobile: 2 columns */}
+        <div className="flex gap-0.5 md:hidden">
+          {[0, 1].map((col) => (
+            <div key={col} className="flex flex-col gap-0.5 flex-1 min-w-0">
+              {photos
+                .filter((_, i) => i % 2 === col)
+                .map(({ src, alt }, j) => (
+                  <div key={j} className="overflow-hidden group">
+                    <img
+                      src={src}
+                      alt={alt}
+                      className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                      loading={j < 2 ? 'eager' : 'lazy'}
+                    />
+                  </div>
+                ))}
+            </div>
+          ))}
+        </div>
+        {/* Desktop: 3 columns */}
+        <div className="hidden md:flex gap-0.5">
+          {[0, 1, 2].map((col) => (
+            <div key={col} className="flex flex-col gap-0.5 flex-1 min-w-0">
+              {photos
+                .filter((_, i) => i % 3 === col)
+                .map(({ src, alt }, j) => (
+                  <div key={j} className="overflow-hidden group">
+                    <img
+                      src={src}
+                      alt={alt}
+                      className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                      loading={j < 2 ? 'eager' : 'lazy'}
+                    />
+                  </div>
+                ))}
             </div>
           ))}
         </div>

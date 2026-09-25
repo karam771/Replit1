@@ -1,4 +1,4 @@
-﻿import { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Images, X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -90,7 +90,7 @@ export default function Galerie() {
             columns: "2",
             columnGap: "8px",
           }}
-          className="md:[column-count:3]"
+          className="md:[column-count:4]"
         >
           {photos.map(({ src, alt }, i) => (
             <motion.div

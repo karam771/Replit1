@@ -1,49 +1,63 @@
-import { motion } from 'framer-motion';
-import { Images } from 'lucide-react';
+﻿import { useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Images, X, ChevronLeft, ChevronRight } from "lucide-react";
 
-import img1 from '@assets/22022e7a-f119-4196-8eea-68c1291acf53_(1)_1778665671247.jpeg';
-import img2 from '@assets/2b552848-e3cd-4689-a99e-a97f283dc6f7_1778665671248.jpeg';
-import img3 from '@assets/a11774da-ecbc-46ab-ac8a-dff381bc9b65_1778665671249.jpeg';
-import img4 from '@assets/db5def46-08f9-4c6b-8ea2-800b3faa8082_1778665671249.jpeg';
-import img5 from '@assets/b747f39f-e520-466e-8884-7e2fc8213d66_1778665671250.jpeg';
-import img6 from '@assets/819e07bc-d690-4924-9691-67b7890fd8fc_1778665671251.jpeg';
-import img7 from '@assets/6cffa310-624f-4339-b469-40ec440ef2ef_1778665671251.jpeg';
-import img8 from '@assets/18f6bdd5-d620-4239-bd00-6458de312625_1778665671252.jpeg';
-import img9 from '@assets/6466b9f9-1fd2-4460-ac3f-2140c4f1b082_1778665671252.jpeg';
-import img10 from '@assets/IMG_0808_1778665671253.webp';
-import img11 from '@assets/IMG_0832_1778665671253.webp';
-import img12 from '@assets/aae54398-3156-4bac-941e-2a68fc40ebf1_1778665671254.jpeg';
-import img13 from '@assets/IMG_0831_1778665438064.jpeg';
-import img14 from '@assets/IMG_5031_1778665530912.jpeg';
-import img15 from '@assets/ebede319-d185-4925-8b01-618799560c35_1778665671254.jpeg';
+import img1  from "@assets/22022e7a-f119-4196-8eea-68c1291acf53_(1)_1778665671247.jpeg";
+import img2  from "@assets/2b552848-e3cd-4689-a99e-a97f283dc6f7_1778665671248.jpeg";
+import img3  from "@assets/a11774da-ecbc-46ab-ac8a-dff381bc9b65_1778665671249.jpeg";
+import img4  from "@assets/db5def46-08f9-4c6b-8ea2-800b3faa8082_1778665671249.jpeg";
+import img5  from "@assets/b747f39f-e520-466e-8884-7e2fc8213d66_1778665671250.jpeg";
+import img6  from "@assets/819e07bc-d690-4924-9691-67b7890fd8fc_1778665671251.jpeg";
+import img7  from "@assets/6cffa310-624f-4339-b469-40ec440ef2ef_1778665671251.jpeg";
+import img8  from "@assets/18f6bdd5-d620-4239-bd00-6458de312625_1778665671252.jpeg";
+import img9  from "@assets/6466b9f9-1fd2-4460-ac3f-2140c4f1b082_1778665671252.jpeg";
+import img10 from "@assets/IMG_0808_1778665671253.webp";
+import img11 from "@assets/IMG_0832_1778665671253.webp";
+import img12 from "@assets/aae54398-3156-4bac-941e-2a68fc40ebf1_1778665671254.jpeg";
+import img13 from "@assets/IMG_0831_1778665438064.jpeg";
+import img14 from "@assets/IMG_5031_1778665530912.jpeg";
+import img15 from "@assets/ebede319-d185-4925-8b01-618799560c35_1778665671254.jpeg";
 
 const photos = [
-  { src: img13, alt: 'Tisch mit Backsteinwand' },
-  { src: img2,  alt: 'Speisen an der Theke' },
-  { src: img14, alt: 'Sitzbereich mit Kunstwerk' },
-  { src: img1,  alt: 'Pizza mit Soßen' },
-  { src: img15, alt: 'Restaurantbereich' },
-  { src: img3,  alt: 'Pizza Spinat' },
-  { src: img12, alt: 'Restaurant mit Pflanzen' },
-  { src: img4,  alt: 'Döner Teller' },
-  { src: img11, alt: 'Restaurantinnenraum' },
-  { src: img5,  alt: 'Döner mit Beilagen' },
-  { src: img6,  alt: 'Döner mit Cola' },
-  { src: img9,  alt: 'Pizza auf Holzbrett' },
-  { src: img7,  alt: 'Börek Rollen' },
-  { src: img10, alt: 'Kebap Sandwich' },
-  { src: img8,  alt: 'Döner mit Pommes' },
+  { src: img13, alt: "Tisch mit Backsteinwand" },
+  { src: img2,  alt: "Speisen an der Theke" },
+  { src: img14, alt: "Sitzbereich mit Kunstwerk" },
+  { src: img1,  alt: "Pizza mit Soßen" },
+  { src: img15, alt: "Restaurantbereich" },
+  { src: img3,  alt: "Pizza Spinat" },
+  { src: img12, alt: "Restaurant mit Pflanzen" },
+  { src: img4,  alt: "Döner Teller" },
+  { src: img11, alt: "Restaurantinnenraum" },
+  { src: img5,  alt: "Döner mit Beilagen" },
+  { src: img6,  alt: "Döner mit Cola" },
+  { src: img9,  alt: "Pizza auf Holzbrett" },
+  { src: img7,  alt: "Börek Rollen" },
+  { src: img10, alt: "Kebap Sandwich" },
+  { src: img8,  alt: "Döner mit Pommes" },
 ];
 
 export default function Galerie() {
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
-      {/* ── Compact header ── */}
+  const open  = useCallback((i: number) => setLightbox(i), []);
+  const close  = useCallback(() => setLightbox(null), []);
+  const prev   = useCallback(() => setLightbox(i => i !== null ? (i - 1 + photos.length) % photos.length : null), []);
+  const next   = useCallback(() => setLightbox(i => i !== null ? (i + 1) % photos.length : null), []);
+
+  const handleKey = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") prev();
+    if (e.key === "ArrowRight") next();
+  }, [close, prev, next]);
+
+  return (
+    <div className="min-h-screen bg-background text-foreground" onKeyDown={handleKey}>
+
+      {/* ── Header ── */}
       <div className="relative pt-16 overflow-hidden border-b border-border">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: 'radial-gradient(ellipse 80% 120% at 50% 120%, rgba(20,60,30,0.18) 0%, transparent 65%)' }}
+          style={{ backgroundImage: "radial-gradient(ellipse 80% 120% at 50% 120%, rgba(180,20,20,0.08) 0%, transparent 65%)" }}
         />
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-10 md:py-12">
           <motion.div
@@ -69,51 +83,97 @@ export default function Galerie() {
         </div>
       </div>
 
-      {/* ── Masonry grid ── */}
-      <section className="py-8 pb-24">
-        {/* Mobile: 2 columns */}
-        <div className="md:hidden px-4">
-          <div className="flex gap-2">
-            {[0, 1].map((col) => (
-              <div key={col} className="flex flex-col gap-2 flex-1 min-w-0">
-                {photos
-                  .filter((_, i) => i % 2 === col)
-                  .map(({ src, alt }, j) => (
-                    <div key={j} className="overflow-hidden group">
-                      <img
-                        src={src}
-                        alt={alt}
-                        className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                        loading={j < 2 ? 'eager' : 'lazy'}
-                      />
-                    </div>
-                  ))}
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* Desktop: 3 columns */}
-        <div className="hidden md:block max-w-6xl mx-auto px-6">
-          <div className="flex gap-2">
-            {[0, 1, 2].map((col) => (
-              <div key={col} className="flex flex-col gap-2 flex-1 min-w-0">
-                {photos
-                  .filter((_, i) => i % 3 === col)
-                  .map(({ src, alt }, j) => (
-                    <div key={j} className="overflow-hidden group">
-                      <img
-                        src={src}
-                        alt={alt}
-                        className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                        loading={j < 2 ? 'eager' : 'lazy'}
-                      />
-                    </div>
-                  ))}
-              </div>
-            ))}
-          </div>
+      {/* ── Masonry (CSS columns — ein einziges Layout, kein Flash) ── */}
+      <section className="py-8 pb-24 max-w-6xl mx-auto px-4 md:px-6">
+        <div
+          style={{
+            columns: "2",
+            columnGap: "8px",
+          }}
+          className="md:[column-count:3]"
+        >
+          {photos.map(({ src, alt }, i) => (
+            <motion.div
+              key={i}
+              className="overflow-hidden group cursor-pointer mb-2 break-inside-avoid"
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.3) }}
+              onClick={() => open(i)}
+            >
+              <img
+                src={src}
+                alt={alt}
+                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                loading={i < 4 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </motion.div>
+          ))}
         </div>
       </section>
+
+      {/* ── Lightbox ── */}
+      <AnimatePresence>
+        {lightbox !== null && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={close}
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/92 backdrop-blur-sm" />
+
+            {/* Image */}
+            <motion.img
+              key={lightbox}
+              src={photos[lightbox].src}
+              alt={photos[lightbox].alt}
+              className="relative z-10 max-h-[85vh] max-w-[90vw] object-contain shadow-2xl"
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.94 }}
+              transition={{ duration: 0.2 }}
+              onClick={e => e.stopPropagation()}
+            />
+
+            {/* Close */}
+            <button
+              className="absolute top-4 right-4 z-20 text-white/60 hover:text-white transition-colors p-2"
+              onClick={close}
+              aria-label="Schließen"
+            >
+              <X className="w-7 h-7" />
+            </button>
+
+            {/* Prev */}
+            <button
+              className="absolute left-3 md:left-6 z-20 text-white/60 hover:text-white transition-colors p-2"
+              onClick={e => { e.stopPropagation(); prev(); }}
+              aria-label="Vorheriges Bild"
+            >
+              <ChevronLeft className="w-9 h-9" />
+            </button>
+
+            {/* Next */}
+            <button
+              className="absolute right-3 md:right-6 z-20 text-white/60 hover:text-white transition-colors p-2"
+              onClick={e => { e.stopPropagation(); next(); }}
+              aria-label="Nächstes Bild"
+            >
+              <ChevronRight className="w-9 h-9" />
+            </button>
+
+            {/* Counter */}
+            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 text-white/40 text-xs tracking-widest">
+              {lightbox + 1} / {photos.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

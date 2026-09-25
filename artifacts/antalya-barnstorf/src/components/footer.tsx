@@ -10,7 +10,7 @@ export default function Footer() {
             <img
               src={logoPath}
               alt="Antalya Barnstorf"
-              className="h-14 w-auto object-contain opacity-75 cursor-pointer hover:opacity-100 transition-opacity mix-blend-multiply"
+              className="h-14 w-auto object-contain opacity-75 cursor-pointer hover:opacity-100 transition-opacity"
             />
           </Link>
         </div>

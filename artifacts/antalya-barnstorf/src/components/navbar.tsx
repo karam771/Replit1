@@ -48,7 +48,7 @@ export default function Navbar() {
           <img
             src={logoPath}
             alt="Antalya Barnstorf"
-            className="h-10 w-auto object-contain cursor-pointer mix-blend-multiply"
+            className="h-10 w-auto object-contain cursor-pointer"
           />
         </Link>
 
